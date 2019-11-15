@@ -20,7 +20,7 @@ class Handler
     private:
     	vector<string> lineas;
       	vector<string> stopwords;
-
+      	stringstream input;
       	bool orden_asc;
 };
 

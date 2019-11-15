@@ -17,26 +17,25 @@ Handler::Handler(stringstream &ss)
 
     handle();
 
-    ss.str("");
   	for(int i=0; i<lineas.size(); i++){
-		ss << lineas[i] << endl;
+		input << lineas[i] << endl;
 	}
 
     //cycle words
-    WordShuffler shuffler(ss, stopwords);
-    ss.str(""); //reset stream
-    ss << shuffler.filter();
+    WordShuffler shuffler(input, stopwords);
+    input.str(""); //reset stream
+    input << shuffler.filter();
     //cout << ss.str();
 
     //sort list
-    SortList sorter(ss, orden_asc);
-    ss.str("");
-    ss << sorter.filter();
+    SortList sorter(input, orden_asc);
+    input.str("");
+    input << sorter.filter();
 
     //handler
 
     //print list
-    cout << ss.str();
+    cout << input.str();
 }
 
 void Handler::handle(){
