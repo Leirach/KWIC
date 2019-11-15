@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <algorithm>
 #include "SortList.h"
 #include "WordShuffler.h"
 
@@ -21,6 +22,8 @@ int main()
 		ss << line << endl;
 	}
 
+	//handler
+
 	//cycle words
 	WordShuffler shuffler(ss);
 	ss.str(""); //reset stream
@@ -28,9 +31,11 @@ int main()
 	//cout << ss.str();
 
 	//sort list
-	SortList sorter(ss);
+	SortList sorter(ss, false);
 	ss.str("");
 	ss << sorter.filter();
+
+	//handler
 
 	//print list
 	cout << ss.str();

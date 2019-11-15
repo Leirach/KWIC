@@ -4,19 +4,21 @@
 
 using namespace std;
 
-SortList::SortList(stringstream &ss)
+SortList::SortList(stringstream &ss, bool asc)
 {
 	input << ss.str();
+	this->asc = asc;
 }
 
-void insertionSort(vector<string> &list)
+void SortList::insertionSort(vector<string> &list)
 {
 	string aux;
 	int n = list.size();
 
 	for(int i=n-1; i>=1; i--){
 		//si list[i] es menor, los cambia, sino ya esta terminado
-		if (list[i-1].compare(list[i]) < 0){
+		if ((asc && list[i-1].compare(list[i]) < 0) ||
+			(!asc && list[i-1].compare(list[i]) > 0)){
 			return;
 		}
 		aux = list[i-1];
