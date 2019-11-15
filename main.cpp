@@ -14,6 +14,7 @@ int main()
 	cin >> filename;
 	ifstream file(filename, ifstream::in);
 	stringstream ss;
+	vector<string> stopwords;
 
 	//read input
 	string line;
@@ -25,7 +26,7 @@ int main()
 	//handler
 
 	//cycle words
-	WordShuffler shuffler(ss);
+	WordShuffler shuffler(ss, stopwords);
 	ss.str(""); //reset stream
 	ss << shuffler.filter();
 	//cout << ss.str();

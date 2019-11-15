@@ -10,12 +10,16 @@ using namespace std;
 class WordShuffler
 {
     public:
-        WordShuffler(stringstream &ss);
+        WordShuffler(stringstream &ss, vector<string> &stopwords);
         string filter();
 
     private:
         stringstream input;
         stringstream output;
+        vector<string> stopwords;
+
+        vector<string> vector_from_str(string str);
+        bool find_in_vector(string &word);
 };
 
 #endif // WORDSHUFFLER_H
