@@ -1,10 +1,5 @@
 #include "Handler.h"
 
-vector<string> vector_from_str(string str) {
-    
-    return words;
-}
-
 Handler::Handler(stringstream &ss)
 {
     input << ss.str();
@@ -17,6 +12,6 @@ Handler::Handler(stringstream &ss)
     }
 }
 
-Handler::filter() {
+Handler::quitarLinea() {
 	cout << "¿Quieres quitar una linea?\n";
 }
