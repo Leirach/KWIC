@@ -17,6 +17,7 @@ int main()
 	//read input
 	string line;
 	while (getline(file, line)){
+		transform(line.begin(), line.end(), line.begin(), ::tolower);
 		ss << line << endl;
 	}
 

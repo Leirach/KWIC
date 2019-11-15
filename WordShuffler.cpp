@@ -1,30 +1,21 @@
 #include "WordShuffler.h"
+#include <vector>
+#include <sstream>
 
 WordShuffler::WordShuffler(stringstream &ss)
 {
     input << ss.str();
 }
-int contar(string Frase) {
-    int NumPos = -1;
-    int totalP = 0;
-    while(1) {
-        NumPos = Frase.find(' ', NumPos + 1);
-        if (NumPos == -1) 
-            break;
-        totalP++;
+
+
+vector<string> vector_from_str(string str) {
+    vector<string> words;
+    stringstream ss(str);
+    string word;
+    while(ss >> word) {
+        words.push_back(word);
     }
-    return totalP;
-}
-
-
-string str_last_word(string &str){
-
-    size_t index = str.find_last_of(" ");
-    if(index != string::npos){
-        return str.substr(index+1, str.length());
-    }
-    else
-        return "";
+    return words;
 }
 
 string WordShuffler::filter(){
@@ -33,16 +24,17 @@ string WordShuffler::filter(){
     while (getline(input, line)) {
         if (line == "")
             break;
+        vector<string> words;
+        words = vector_from_str(line);
 
-        output << line << endl; //para la original
-
-        for(int i=0; i<contar(line); i++){
-            string last = str_last_word(line);
-
-            int a = line.find(last);
-            line = last + " " + line.substr(0, a-1);
-
-            output << line << endl; //rotaciones
+        int n = words.size();
+        for(int i=0; i<n; i++){
+            string perm = "";
+            for (int j=0; j<n; j++){
+                perm = perm + words[(i+j)%n] + ' ';
+            }
+            perm = perm.substr(0, perm.size()-1);
+            output << perm << endl;
         }
     }
 
