@@ -5,6 +5,7 @@
 WordShuffler::WordShuffler(stringstream &ss, vector<string> &stopwords)
 {
     input << ss.str();
+    cout << input.str();
     this->stopwords = stopwords;
 }
 

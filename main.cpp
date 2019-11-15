@@ -2,8 +2,7 @@
 #include <string>
 #include <fstream>
 #include <algorithm>
-#include "SortList.h"
-#include "WordShuffler.h"
+#include "Handler.h"
 
 using namespace std;
 
@@ -14,7 +13,6 @@ int main()
 	cin >> filename;
 	ifstream file(filename, ifstream::in);
 	stringstream ss;
-	vector<string> stopwords;
 
 	//read input
 	string line;
@@ -23,23 +21,7 @@ int main()
 		ss << line << endl;
 	}
 
-	//handler
-
-	//cycle words
-	WordShuffler shuffler(ss, stopwords);
-	ss.str(""); //reset stream
-	ss << shuffler.filter();
-	//cout << ss.str();
-
-	//sort list
-	SortList sorter(ss, false);
-	ss.str("");
-	ss << sorter.filter();
-
-	//handler
-
-	//print list
-	cout << ss.str();
+  	Handler h(ss);
 
     return 0;
 }

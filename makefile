@@ -1,5 +1,5 @@
 CC = g++
-OBJS = main.o WordShuffler.o SortList.o
+OBJS = main.o WordShuffler.o SortList.o Handler.o
 
 all: clean kwic
 
@@ -8,6 +8,9 @@ kwic: $(OBJS)
 
 main.o:
 	$(CC) -c main.cpp
+
+Handler.o:
+	$(CC) -c Handler.cpp
 
 SortList.o:
 	$(CC) -c SortList.cpp

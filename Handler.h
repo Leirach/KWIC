@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -11,12 +12,17 @@ class Handler
 {
     public:
         Handler(stringstream &ss);
-        void filter();
+        void handle();
+        void read_stopwords();
+        void eliminar_lineas();
+        void imprimir();
 
     private:
-    	stringstream input;
     	vector<string> lineas;
-    	stringstream output;
+      	vector<string> stopwords;
+
+      	bool orden_asc;
 };
 
 #endif // HANDLER_H
+
